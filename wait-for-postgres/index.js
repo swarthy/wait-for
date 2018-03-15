@@ -12,7 +12,11 @@ function delayPromise(ms) {
 }
 
 function isUsualError(err) {
-  return err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED'
+  return (
+    err.code === 'ENOTFOUND' ||
+    err.code === 'ECONNREFUSED' ||
+    err.code === 'EAI_AGAIN'
+  )
 }
 
 module.exports = async function waitForPostgres(customOptions = {}) {
