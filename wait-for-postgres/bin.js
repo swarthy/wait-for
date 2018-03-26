@@ -2,10 +2,11 @@
 
 const waitForPostgres = require('./index')
 
-const { POSTGRESQL_URI } = process.env
+const { POSTGRESQL_URI, MAX_ATTEMPTS } = process.env
 
 const options = {
-  connectionString: POSTGRESQL_URI
+  connectionString: POSTGRESQL_URI,
+  maxAttempts: +MAX_ATTEMPTS || 60
 }
 
 async function main() {
