@@ -1,13 +1,13 @@
 {
   "name": "@swarthy/wait-for-rabbit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "eslint ."
   },
   "bin": {
-    "wait-for-postgres": "./bin.js"
+    "wait-for-rabbit": "./bin.js"
   },
   "repository": {
     "type": "git",
