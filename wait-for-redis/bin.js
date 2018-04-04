@@ -5,7 +5,7 @@ const waitForRedis = require('./index')
 const { REDIS_URI, MAX_ATTEMPTS, DELAY } = process.env
 
 const options = {
-  connectionString: REDIS_URI,
+  connectionString: REDIS_URI || 'redis://localhost',
   maxAttempts: +MAX_ATTEMPTS || 60,
   delay: +DELAY || 1000
 }

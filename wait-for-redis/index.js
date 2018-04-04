@@ -5,12 +5,6 @@ Bluebird.promisifyAll(redis.Multi.prototype)
 
 const debug = require('debug')('wait-for-redis')
 
-const DEFAULTS = {
-  connectionString: 'redis://localhost',
-  maxAttempts: 10,
-  delay: 1000
-}
-
 function isUsualError(err) {
   return (
     err.code === 'ENOTFOUND' ||
@@ -19,8 +13,7 @@ function isUsualError(err) {
   )
 }
 
-module.exports = async function waitForRedis(customOptions = {}) {
-  const options = Object.assign({}, DEFAULTS, customOptions)
+module.exports = async function waitForRedis(options) {
   const { connectionString, delay, maxAttempts } = options
 
   debug('URI:', connectionString)
@@ -29,6 +22,7 @@ module.exports = async function waitForRedis(customOptions = {}) {
 
   return new Promise(resolve => {
     const client = redis.createClient({
+      url: connectionString,
       retry_strategy: function(opts) {
         debug('Attempt #%d', opts.attempt)
         if (opts.attempt > maxAttempts) {
