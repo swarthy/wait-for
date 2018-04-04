@@ -1,5 +1,7 @@
 # wait-for-rabbit
 
+[![npm](https://img.shields.io/npm/v/@swarthy/wait-for-rabbit.svg)](https://www.npmjs.com/package/@swarthy/wait-for-rabbit)
+
 *wait-for-rabbit* will try connect to RabbitMQ server and exit with code ```0``` if server is available and ```1``` otherwise.
 
 Uses [amqplib](https://www.npmjs.com/package/amqplib) package

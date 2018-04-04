@@ -1,5 +1,7 @@
 # wait-for-postgres
 
+[![npm](https://img.shields.io/npm/v/@swarthy/wait-for-postgres.svg)](https://www.npmjs.com/package/@swarthy/wait-for-postgres)
+
 *wait-for-postgres* will try connect to PostgreSQL server and exit with code ```0``` if server is available and ```1``` otherwise.
 
 Uses [pg](https://www.npmjs.com/package/pg) package
