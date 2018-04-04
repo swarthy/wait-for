@@ -15,6 +15,7 @@
   },
   "author": "Alexander Mochalin <horroshow@mail.ru>",
   "license": "MIT",
+  "keywords": ["wait-for", "rabbit", "rabbitmq"],
   "dependencies": {
     "amqplib": "^0.5.2",
     "debug": "^3.1.0"

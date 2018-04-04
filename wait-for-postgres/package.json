@@ -15,6 +15,7 @@
   },
   "author": "Alexander Mochalin <horroshow@mail.ru>",
   "license": "MIT",
+  "keywords": ["wait-for", "postgres", "postgresql"],
   "dependencies": {
     "debug": "^3.1.0",
     "pg": "^7.4.1"
