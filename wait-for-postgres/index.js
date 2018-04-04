@@ -2,7 +2,7 @@ const { Client } = require('pg')
 const debug = require('debug')('wait-for-postgres')
 
 const DEFAULTS = {
-  connectionString: 'postgres://postgres@localhost/imm',
+  connectionString: 'postgres://postgres@localhost',
   maxAttempts: 30,
   delay: 1000
 }
