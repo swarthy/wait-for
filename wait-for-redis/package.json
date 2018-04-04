@@ -9,6 +9,10 @@
   "bin": {
     "wait-for-redis": "./bin.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swarthy/wait-for"
+  },
   "author": "Alexander Mochalin <horroshow@mail.ru>",
   "license": "MIT",
   "dependencies": {

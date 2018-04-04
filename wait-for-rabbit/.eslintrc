@@ -1,0 +1,15 @@
+env:
+  node: true
+plugins:
+- node
+extends:
+- inclusive
+- plugin:node/recommended
+rules:
+  node/no-unpublished-require:
+    - error
+    - allowModules:
+      - chai
+      - sinon
+      - sinon-chai
+      - chai-as-promised

@@ -2,16 +2,17 @@
 
 const waitForPostgres = require('./index')
 
-const { POSTGRESQL_URI, MAX_ATTEMPTS } = process.env
+const { POSTGRESQL_URI, MAX_ATTEMPTS, DELAY } = process.env
 
 const options = {
-  connectionString: POSTGRESQL_URI,
-  maxAttempts: +MAX_ATTEMPTS || 60
+  connectionString: POSTGRESQL_URI || 'postgres://postgres@localhost',
+  maxAttempts: +MAX_ATTEMPTS || 60,
+  delay: +DELAY || 1000
 }
 
 async function main() {
-  const isPostgresAvailable = await waitForPostgres(options)
-  if (!isPostgresAvailable) {
+  const isAvailable = await waitForPostgres(options)
+  if (!isAvailable) {
     console.error('[wait-for-postgres] PostgreSQL server is not available')
     process.exitCode = 1
   }

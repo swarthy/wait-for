@@ -6,7 +6,7 @@ Bluebird.promisifyAll(redis.Multi.prototype)
 const debug = require('debug')('wait-for-redis')
 
 const DEFAULTS = {
-  connectionString: 'redis://redis',
+  connectionString: 'redis://localhost',
   maxAttempts: 10,
   delay: 1000
 }
@@ -30,6 +30,7 @@ module.exports = async function waitForRedis(customOptions = {}) {
   return new Promise(resolve => {
     const client = redis.createClient({
       retry_strategy: function(opts) {
+        debug('Attempt #%d', opts.attempt)
         if (opts.attempt > maxAttempts) {
           debug('Attempt limit exceeded')
           client.quit()
@@ -47,7 +48,7 @@ module.exports = async function waitForRedis(customOptions = {}) {
       }
     })
     client.on('ready', () => {
-      debug('Redis serveri is ready!')
+      debug('Redis server is ready!')
       client.quit()
       resolve(true)
     })
