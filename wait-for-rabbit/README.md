@@ -19,3 +19,7 @@ wait-for-rabbit && npm run test-integration
 
 MAX_ATTEMPTS=5 wait-for-rabbit && npm run test-integration
 ```
+
+#### See also
+[wait-for-postgres](https://www.npmjs.com/package/@swarthy/wait-for-postgres)
+[wait-for-redis](https://www.npmjs.com/package/@swarthy/wait-for-redis)
