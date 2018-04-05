@@ -6,7 +6,13 @@ services:
   - postgresql
   - rabbitmq
   - redis-server
-after_success: 'npm run coveralls'
+before_script:
+  - psql -c "CREATE DATABASE testdb;" -U postgres
+  - psql -c "ALTER USER postgres WITH PASSWORD 'test';" -U postgres
+env:
+  POSTGRESQL_URI: postgres://postgres:test@localhost/testdb
+  RABBITMQ_URI: amqp://localhost
+  REDIS_URI: redis://localhost
 cache: yarn
 matrix:
   fast_finish: true

@@ -1,6 +1,7 @@
 # wait-for
 
 [![npm](https://img.shields.io/npm/v/@swarthy/wait-for.svg)](https://www.npmjs.com/package/@swarthy/wait-for)
+[![Build Status](https://travis-ci.org/swarthy/wait-for.svg?branch=master)](https://travis-ci.org/swarthy/wait-for)
 
 *wait-for-xxx* will try connect to server then exit with code ```0``` if server is available and ```1``` otherwise.
 
