@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const waitForRabbit = require('./index')
+const waitForRabbit = require('../lib/rabbit')
 
 const { RABBITMQ_URI, MAX_ATTEMPTS, DELAY } = process.env
 

@@ -1,13 +1,15 @@
 {
-  "name": "@swarthy/wait-for-rabbit",
-  "version": "1.0.2",
-  "description": "",
+  "name": "@swarthy/wait-for",
+  "version": "1.0.0",
+  "description": "Wait for (PostgresSQL|RabbitMQ|Redis) server is available",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ."
+    "test": "eslint . && mocha"
   },
   "bin": {
-    "wait-for-rabbit": "./bin.js"
+    "wait-for-postgres": "./bin/wait-for-postgres.js",
+    "wait-for-rabbit": "./bin/wait-for-rabbit.js",
+    "wait-for-redis": "./bin/wait-for-redis.js"
   },
   "repository": {
     "type": "git",
@@ -15,10 +17,20 @@
   },
   "author": "Alexander Mochalin <horroshow@mail.ru>",
   "license": "MIT",
-  "keywords": ["wait-for", "rabbit", "rabbitmq"],
+  "keywords": [
+    "wait-for",
+    "postgres",
+    "postgresql",
+    "rabbit",
+    "rabbitmq",
+    "redis"
+  ],
   "dependencies": {
     "amqplib": "^0.5.2",
-    "debug": "^3.1.0"
+    "bluebird": "^3.5.1",
+    "debug": "^3.1.0",
+    "pg": "^7.4.1",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "chai": "4.1.2",

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const waitForRedis = require('./index')
+const waitForRedis = require('../lib/redis')
 
 const { REDIS_URI, MAX_ATTEMPTS, DELAY } = process.env
 

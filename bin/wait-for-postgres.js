@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const waitForPostgres = require('./index')
+const waitForPostgres = require('../lib/postgres')
 
 const { POSTGRESQL_URI, MAX_ATTEMPTS, DELAY } = process.env
 
