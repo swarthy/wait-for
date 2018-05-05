@@ -31,6 +31,14 @@ wait-for --redis redis://localhost && npm run test-integration
 REDIS_URI=redis://localhost wait-for --redis && npm run test-integration
 ```
 
+### Example
+
+Wait for PostgreSQL, RabbitMQ and Redis (configured via environment)
+
+```bash
+wait-for --postgresql --rabbitmq --redis && npm run test-integration
+```
+
 ## Configuration
 
 | CLI argument       | Environment variable | Description            |
