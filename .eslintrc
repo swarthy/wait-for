@@ -6,6 +6,7 @@ extends:
 - inclusive
 - plugin:node/recommended
 rules:
+  no-process-exit: 0
   node/no-unpublished-require:
     - error
     - allowModules:

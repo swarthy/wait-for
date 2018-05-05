@@ -7,9 +7,7 @@
     "test": "eslint . && mocha"
   },
   "bin": {
-    "wait-for-postgres": "./bin/wait-for-postgres.js",
-    "wait-for-rabbit": "./bin/wait-for-rabbit.js",
-    "wait-for-redis": "./bin/wait-for-redis.js"
+    "wait-for": "./bin/wait-for.js"
   },
   "repository": {
     "type": "git",
@@ -28,21 +26,22 @@
   "dependencies": {
     "amqplib": "^0.5.2",
     "bluebird": "^3.5.1",
+    "commander": "^2.15.1",
     "debug": "^3.1.0",
-    "pg": "^7.4.1",
+    "pg": "^7.4.2",
     "redis": "^2.8.0"
   },
   "devDependencies": {
     "chai": "4.1.2",
     "chai-as-promised": "7.1.1",
-    "eslint": "4.14.0",
+    "eslint": "4.19.1",
     "eslint-config-inclusive": "1.0.9",
-    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-node": "6.0.1",
     "istanbul": "0.4.5",
-    "mocha": "4.1.0",
-    "sinon": "4.1.3",
-    "sinon-chai": "2.14.0",
-    "snyk": "1.63.0"
+    "mocha": "5.1.1",
+    "sinon": "5.0.3",
+    "sinon-chai": "3.0.0",
+    "snyk": "1.78.1"
   },
   "engines": {
     "node": ">= 8.0.0"
