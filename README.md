@@ -41,13 +41,13 @@ wait-for --postgresql --rabbitmq --redis && npm run test-integration
 
 ## Configuration
 
-| CLI argument       | Environment variable | Description            |
-| ------------------ | -------------------- | ---------------------- |
-| --postgressql      | `POSTGRESQL_URI`     | Connection string      |
-| --rabbitmq         | `RABBITMQ_URI`       | Connection string      |
-| --redis            | `REDIS_URI`          | Connection string      |
-| -c, --max-attempts | `MAX_ATTEMPTS`       | Max attempt count      |
-| -d, --delay        | `DELAY`              | Delay between attempts |
+| CLI argument       | Environment variable | Description            | Default |
+| ------------------ | -------------------- | ---------------------- | ------- |
+| --postgressql      | `POSTGRESQL_URI`     | Connection string      |         |
+| --rabbitmq         | `RABBITMQ_URI`       | Connection string      |         |
+| --redis            | `REDIS_URI`          | Connection string      |         |
+| -c, --max-attempts |                      | Max attempt count      | 60      |
+| -d, --delay        |                      | Delay between attempts | 1000    |
 
 ### Used packages
 
