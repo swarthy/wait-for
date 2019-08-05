@@ -1,5 +1,3 @@
-/* global expect */
-
 const waitForRabbit = require('../../lib/rabbit')
 
 describe('waitForRabbit', () => {

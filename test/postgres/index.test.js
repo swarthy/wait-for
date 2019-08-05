@@ -1,5 +1,3 @@
-/* global expect */
-
 const waitForPostgres = require('../../lib/postgres')
 
 describe('waitForPostgres', () => {

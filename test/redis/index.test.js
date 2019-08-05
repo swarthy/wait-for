@@ -1,5 +1,3 @@
-/* global expect */
-
 const waitForRedis = require('../../lib/redis')
 
 describe('waitForRedis', () => {
