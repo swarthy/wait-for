@@ -1,3 +1,4 @@
+dist: trusty # https://travis-ci.community/t/is-rabbitmq-service-down/4362
 sudo: required
 language: node_js
 node_js:
