@@ -1,6 +1,6 @@
 {
   "name": "@swarthy/wait-for",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Wait for (PostgresSQL|RabbitMQ|Redis) server is available",
   "main": "index.js",
   "scripts": {
