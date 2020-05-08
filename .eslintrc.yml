@@ -1,0 +1,17 @@
+env:
+  node: true
+plugins:
+  - node
+extends:
+  - inclusive
+  - plugin:node/recommended
+rules:
+  no-process-exit: 0
+overrides:
+  - files:
+      - src/**/*.test.js
+      - test/**/*.js
+    env:
+      mocha: true
+    globals:
+      expect: true

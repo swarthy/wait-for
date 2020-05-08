@@ -1,0 +1,4 @@
+recursive: true
+timeout: 5s
+require:
+  - test/setup.js
