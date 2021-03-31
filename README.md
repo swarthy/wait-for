@@ -48,6 +48,7 @@ wait-for --postgresql --rabbitmq --redis && npm run test-integration
 | --redis            | `REDIS_URI`          | Connection string      |         |
 | -c, --max-attempts |                      | Max attempt count      | 60      |
 | -d, --delay        |                      | Delay between attempts | 1000    |
+| -q, --quiet        |                      | Quiet mode             |         |
 
 ### Used packages
 
