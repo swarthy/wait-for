@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-const program = require('commander')
+const { program } = require('commander')
 const waitForPostgres = require('../lib/postgres')
 const waitForRabbit = require('../lib/rabbit')
 const waitForRedis = require('../lib/redis')
-
-const parseInteger = value => parseInt(value, 10)
+const { consoleError } = require('../lib/log')
+const pkg = require('../package.json')
 
 program
   .option(
@@ -20,26 +20,33 @@ program
     '--redis [URI]',
     'Wait for Redis server become available (accepted connection) (env: REDIS_URI)'
   )
-  .option('-d, --delay [ms]', 'Delay between attempts', parseInteger, 1000)
-  .option('-c, --max-attempts [count]', 'Max attempts', parseInteger, 60)
+  .option('-d, --delay [ms]', 'Delay between attempts')
+  .option('-c, --max-attempts [count]', 'Max attempts')
+  .option('-q, --quiet', 'Quiet mode')
+  .version(pkg.version)
   .parse(process.argv)
 
-const { postgresql, rabbitmq, redis, delay, maxAttempts } = program
+const options = program.opts()
+
+const { postgresql, rabbitmq, redis, quiet } = options
+
+const delay = +options.delay || 1000
+const maxAttempts = +options.maxAttempts || 60
 
 if (!postgresql && !rabbitmq && !redis) {
   program.outputHelp()
   process.exit(1)
 }
 
-const assert = (condition, msg) => {
+const assert = (condition, quiet, msg) => {
   if (!condition) {
-    console.error('[wait-for]', msg)
+    consoleError(quiet, '[wait-for]', msg)
     process.exit(1)
   }
 }
 
-assert(delay > 0, 'delay must be greater than 0')
-assert(maxAttempts > 0, 'maxAttempts must be greater than 0')
+assert(delay > 0, quiet, 'delay must be greater than 0')
+assert(maxAttempts > 0, quiet, 'maxAttempts must be greater than 0')
 
 const getURI = (arg, defaultValue) =>
   typeof arg === 'string' ? arg : arg === true ? defaultValue : null
@@ -47,7 +54,7 @@ const getURI = (arg, defaultValue) =>
 if (postgresql) {
   const connectionString = getURI(postgresql, process.env.POSTGRESQL_URI)
   assert(connectionString, 'URI for PostgresSQL not specified')
-  const options = { connectionString, maxAttempts, delay }
+  const options = { connectionString, maxAttempts, delay, quiet }
   waitForPostgres(options).then(isAvailable =>
     assert(isAvailable, 'PostgreSQL server is not available')
   )
@@ -56,7 +63,7 @@ if (postgresql) {
 if (rabbitmq) {
   const connectionString = getURI(rabbitmq, process.env.RABBITMQ_URI)
   assert(connectionString, 'URI for RabbitMQ not specified')
-  const options = { connectionString, maxAttempts, delay }
+  const options = { connectionString, maxAttempts, delay, quiet }
   waitForRabbit(options).then(isAvailable =>
     assert(isAvailable, 'RabbitMQ server is not available')
   )
@@ -65,7 +72,7 @@ if (rabbitmq) {
 if (redis) {
   const connectionString = getURI(redis, process.env.REDIS_URI)
   assert(connectionString, 'URI for Redis not specified')
-  const options = { connectionString, maxAttempts, delay }
+  const options = { connectionString, maxAttempts, delay, quiet }
   waitForRedis(options).then(isAvailable =>
     assert(isAvailable, 'Redis server is not available')
   )
