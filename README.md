@@ -60,8 +60,8 @@ wait-for --postgresql --rabbitmq --redis && npm run test-integration
 
 [npm-image]: https://img.shields.io/npm/v/@swarthy/wait-for.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/wait-for
-[ci-image]: https://img.shields.io/travis/swarthy/wait-for/master.svg?style=flat-square
-[ci-url]: https://travis-ci.com/swarthy/wait-for
+[ci-image]: https://github.com/swarthy/wait-for/actions/workflows/main.yml/badge.svg
+[ci-url]: https://github.com/swarthy/wait-for/actions/workflows/main.yml
 [daviddm-image]: http://img.shields.io/david/swarthy/wait-for.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/swarthy/wait-for
 [snyk-image]: https://snyk.io/test/npm/@swarthy/wait-for/badge.svg

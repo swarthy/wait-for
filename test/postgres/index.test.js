@@ -4,7 +4,8 @@ describe('waitForPostgres', () => {
   it('should resolve true when connect to available server', async () => {
     const options = {
       connectionString:
-        process.env.POSTGRESQL_URI || 'postgres://postgres@localhost:5432',
+        process.env.POSTGRESQL_URI ||
+        'postgresql://postgres:postgres@localhost',
       maxAttempts: 2,
       delay: 200
     }
